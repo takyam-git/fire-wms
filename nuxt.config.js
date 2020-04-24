@@ -43,13 +43,43 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    // Doc: https://github.com/nuxt-community/sentry-module
+    '@nuxtjs/sentry',
+    // Doc: https://github.com/nuxt-community/firebase-module
+    [
+      '@nuxtjs/firebase',
+      {
+        config: {
+          apiKey: process.env.FIREBASE_API_KEY || '',
+          authDomain: process.env.FIREBASE_AUTH_DOMAIN || '',
+          databaseURL: process.env.FIREBASE_DATABASE_URL || '',
+          projectId: process.env.FIREBASE_PROJECT_ID || '',
+          storageBucket: process.env.FIREBASE_STORAGE_BUCKET || '',
+          messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || '',
+          appId: process.env.FIREBASE_APP_ID || '',
+          measurementId: process.env.FIREBASE_MEASUREMENT_ID || ''
+        },
+        services: {
+          auth: true,
+          firestore: true,
+          functions: {
+            location: 'asia-northeast1'
+          }
+        }
+      }
+    ]
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  // Doc: https://github.com/nuxt-community/sentry-module
+  sentry: {
+    dsn: process.env.SENTRY_DSN || '',
+    config: {} // Additional config
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module

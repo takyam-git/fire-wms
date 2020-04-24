@@ -31,13 +31,13 @@
       "port": 5001
     },
     "firestore": {
-      "port": 8080
+      "port": 8090
     },
     "hosting": {
       "port": 5000
     },
     "pubsub": {
-      "port": 8085
+      "port": 8095
     }
   }
 }
